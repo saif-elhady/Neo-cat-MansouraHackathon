@@ -3,8 +3,8 @@ import mongoose, { Schema, Document } from "mongoose";
 interface IUser extends Document {
     fullName: string;
     emailAddress: string;
-    phoneNumber: string;
-    nationalId: string;
+    phoneNumber: number;
+    nationalId: number;
     password: string;
     jobTitle: string;
     monthlyIncome: number;
@@ -21,8 +21,8 @@ interface IUser extends Document {
 const userSchema: Schema = new Schema({
     fullName: { type: String, required: true },
     emailAddress: { type: String, required: true, unique: true },
-    phoneNumber: { type: String, required: true },
-    nationalId: { type: String, required: true, unique: true },
+    phoneNumber: { type: Number, required: true },
+    nationalId: { type: Number, required: true, unique: true },
     password: { type: String, required: true },
     jobTitle: { type: String, required: true },
     monthlyIncome: { type: Number, required: true },
