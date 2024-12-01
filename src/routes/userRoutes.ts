@@ -226,9 +226,9 @@ router.post('/users/update-balance', checkAuth, updateBalance);
  *               emailAddress:
  *                 type: string
  *               phoneNumber:
- *                 type: string
+ *                 type: number
  *               nationalId:
- *                 type: string
+ *                 type: number
  *               password:
  *                 type: string
  *               jobTitle:
