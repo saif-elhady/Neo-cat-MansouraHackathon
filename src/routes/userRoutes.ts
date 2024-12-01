@@ -55,29 +55,18 @@ router.get('/users/:id', checkAuth, getOne);
  *               emailAddress:
  *                 type: string
  *               phoneNumber:
- *                 type: string
+ *                 type: number
  *               nationalId:
- *                 type: string
+ *                 type: number
  *               password:
  *                 type: string
  *               jobTitle:
  *                 type: string
  *               monthlyIncome:
  *                 type: number
- *               educationLevel:
+ *               resetCode:
  *                 type: string
- *               maritalStatus:
- *                 type: string
- *               numberOfDependents:
- *                 type: number
- *               residentialAddress:
- *                 type: string
- *               professionalQualifications:
- *                 type: array
- *                 items:
- *                   type: string
- *               savingGoal:
- *                 type: string
+ *           
  *     responses:
  *       201:
  *         description: User created successfully
@@ -233,22 +222,9 @@ router.post('/users/update-balance', checkAuth, updateBalance);
  *                 type: string
  *               jobTitle:
  *                 type: string
- *               monthlyIncome:
+ *               resetCode:
  *                 type: number
- *               educationLevel:
- *                 type: string
- *               maritalStatus:
- *                 type: string
- *               numberOfDependents:
- *                 type: number
- *               residentialAddress:
- *                 type: string
- *               professionalQualifications:
- *                 type: array
- *                 items:
- *                   type: string
- *               savingGoal:
- *                 type: string
+ *              
  *     responses:
  *       200:
  *         description: User updated successfully
