@@ -56,7 +56,7 @@ const addGoal = async (req: Request, res: Response, next: NextFunction) => {
             savedAmount,
             progress,
             monthlySavingsNeeded,
-            deadline: new Date(deadline).toISOString(),
+            deadline,
             createdAt: new Date()
         });
 
