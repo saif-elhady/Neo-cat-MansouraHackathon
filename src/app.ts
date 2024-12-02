@@ -10,9 +10,14 @@ import swaggerSpec from './swaggerConfig';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(cors({
+    origin: '*', // Allow all origins
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow specific methods
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+}));
 app.use(bodyParser.json());
 app.use('/api', userRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
