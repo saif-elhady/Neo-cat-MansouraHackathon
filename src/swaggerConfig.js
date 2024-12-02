@@ -10,7 +10,7 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:4000/api', // Replace with your API base URL
+                url: 'https://neo-cat-mansourahackathon-production.up.railway.app', // Replace with your API base URL
             },
         ],
     },
