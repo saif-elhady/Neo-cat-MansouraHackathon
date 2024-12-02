@@ -35,11 +35,11 @@ const router = express.Router();
  *         targetAmount: 20000
  *         savedAmount: 2000
  *         deadline: 2026-10-02
- *       securitySchemes:
- *           bearerAuth:
- *          type: http
- *          scheme: bearer
- *          bearerFormat: JWT
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
  */
 
 /**
@@ -80,6 +80,8 @@ router.get('/goals/', getGoals);
  *           type: string
  *         required: true
  *         description: The goal id
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: The goal description by id
@@ -98,6 +100,8 @@ router.get('/goals/:id', checkAuth, getGoal);
  *   post:
  *     summary: Create a new goal
  *     tags: [Goals]
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -129,6 +133,8 @@ router.post('/goals/', checkAuth, validateGoal ,addGoal);
  *           type: string
  *         required: true
  *         description: The goal id
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -148,6 +154,7 @@ router.post('/goals/', checkAuth, validateGoal ,addGoal);
  *         description: Some error happened
  */
 router.put('/goals/:id', checkAuth, validateGoal, updateGoal);
+
 /**
  * @swagger
  * /goals/{id}:
@@ -161,6 +168,8 @@ router.put('/goals/:id', checkAuth, validateGoal, updateGoal);
  *           type: string
  *         required: true
  *         description: The goal id
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: The goal was deleted
