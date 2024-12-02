@@ -30,19 +30,11 @@ const router = express.Router();
  *           type: string
  *           format: date
  *           description: The deadline for the goal
- *         progress:
- *           type: number
- *           description: The progress towards the goal in percentage
- *         monthlySavingsNeeded:
- *           type: number
- *           description: The monthly savings needed to reach the goal
  *       example:
  *         goalName: Buy a Car
- *         targetAmount: 10000
+ *         targetAmount: 20000
  *         savedAmount: 2000
- *         deadline: 2026-12-31
- *         progress: 20
- *         monthlySavingsNeeded: 320
+ *         deadline: 2026-10-02
  */
 
 /**
