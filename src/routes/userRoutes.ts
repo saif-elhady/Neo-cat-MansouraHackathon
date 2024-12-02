@@ -1,6 +1,6 @@
 import express from "express";
 import { deleteOne, getAll, getOne, updateOne } from "../utils/crudUtils";
-import { forgotPassword, login, refreshToken, signUp, verifyResetCode } from "../services/authService";
+import { forgotPassword, login, logout, refreshToken, signUp, verifyResetCode } from "../services/authService";
 import { checkAuth } from "../middlewares/checkAuth";
 import { loginValidator, signUpvalidator } from "../utils/validation/userValidation";
 import { updateBalance } from "../controllers/userController";
@@ -270,5 +270,19 @@ router.put('/users/:id', checkAuth, updateOne);
  *         description: User not found
  */
 router.delete('/users/:id', checkAuth, deleteOne);
+/**
+ * @swagger
+ * /users/logout:
+ *   post:
+ *     summary: Log out a user
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Logout successful
+ *       401:
+ *         description: Unauthorized
+ */
+router.post('/users/logout', checkAuth, logout);
 
 export default router;

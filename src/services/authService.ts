@@ -147,4 +147,16 @@ const verifyResetCode = async (req: Request, res: Response, next: NextFunction):
     }
 };
 
-export { signUp, login, refreshToken, forgotPassword, verifyResetCode };
+export const tokenBlacklist: Set<string> = new Set();
+const logout = (req: Request, res: Response) => {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (token) {
+      tokenBlacklist.add(token);
+      res.status(200).json({ message: "Logout successful" });
+    } else {
+      res.status(400).json({ message: "Token not provided" });
+    }
+  };
+  
+
+export { signUp, login, refreshToken, forgotPassword, verifyResetCode, logout };

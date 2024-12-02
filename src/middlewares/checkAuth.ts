@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/userSchema';
 import { Request, Response, NextFunction } from 'express';
+import { tokenBlacklist } from "../services/authService"; // Import the blacklist
 declare module 'express-serve-static-core' {
     interface Request {
         user?: any;
@@ -27,6 +28,11 @@ export function checkAuth(req: Request, res: Response, next: NextFunction) {
 
     if (token === undefined) {
         res.status(401).json({ message: 'No token provided' });
+        return;
+    }
+
+    if (tokenBlacklist.has(token)) {
+        res.status(401).json({ message: "Token has been invalidated" });
         return;
     }
 
