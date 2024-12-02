@@ -1,8 +1,7 @@
-# Project Title
+# FinTrack
 
 ## Overview
-This project is developed as part of the GDG Hackathon to provide a comprehensive solution for [project description]. It features functionalities such as [list major features or goals of the app briefly].
-
+FinTrack simplifies money management with automated tracking, budgeting tools, and personalized tips. Tailored for Egypt, it supports local currency and addresses inflation challenges.
 ## Resources
 
 1. **Project Video**  
