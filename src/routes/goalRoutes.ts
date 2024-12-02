@@ -35,6 +35,11 @@ const router = express.Router();
  *         targetAmount: 20000
  *         savedAmount: 2000
  *         deadline: 2026-10-02
+ *       securitySchemes:
+ *           bearerAuth:
+ *          type: http
+ *          scheme: bearer
+ *          bearerFormat: JWT
  */
 
 /**
