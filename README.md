@@ -1,4 +1,4 @@
-# FInTrack
+# FinTrack
 
 ## Description
 This project is a backend API built with Node.js, Express, and MongoDB. It includes functionalities for user authentication, goal management, and balance updates.
