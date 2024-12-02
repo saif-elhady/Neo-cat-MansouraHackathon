@@ -34,7 +34,7 @@ const router = express.Router();
  *         goalName: Buy a Car
  *         targetAmount: 20000
  *         savedAmount: 2000
- *         deadline: 2026-10-02
+ *         deadline: 2025-10-02
  *   securitySchemes:
  *     bearerAuth:
  *       type: http
