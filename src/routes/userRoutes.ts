@@ -9,14 +9,26 @@ const router = express.Router();
 
 /**
  * @swagger
+ * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ */
+
+/**
+ * @swagger
  * /users/:
  *   get:
  *     summary: Retrieve a list of users
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: A list of users
  */
-router.get('/users/', getAll);
+router.get('/users/', checkAuth, getAll);
 
 /**
  * @swagger
@@ -30,6 +42,8 @@ router.get('/users/', getAll);
  *         schema:
  *           type: string
  *         description: The user ID
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: A single user
@@ -66,7 +80,6 @@ router.get('/users/:id', checkAuth, getOne);
  *                 type: number
  *               resetCode:
  *                 type: string
- *           
  *     responses:
  *       201:
  *         description: User created successfully
@@ -174,6 +187,8 @@ router.post('/users/verify-reset-code', verifyResetCode);
  * /users/update-balance:
  *   post:
  *     summary: Update the user's balance
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -203,6 +218,8 @@ router.post('/users/update-balance', checkAuth, updateBalance);
  *         schema:
  *           type: string
  *         description: The user ID
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -224,7 +241,6 @@ router.post('/users/update-balance', checkAuth, updateBalance);
  *                 type: string
  *               resetCode:
  *                 type: number
- *              
  *     responses:
  *       200:
  *         description: User updated successfully
@@ -245,6 +261,8 @@ router.put('/users/:id', checkAuth, updateOne);
  *         schema:
  *           type: string
  *         description: The user ID
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: User deleted successfully
